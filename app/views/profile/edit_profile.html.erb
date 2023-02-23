@@ -1,0 +1,48 @@
+  <div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <div class="frontImg">
+            <%= image_tag "editImg.jpg"%>
+        </div>
+      </div>
+    </div>
+    <div class="forms">
+      <div class="form-content">
+        <div>
+          <div class="title">
+            Edit Profile
+          </div>
+          <%= form_with url: "/profile/edit_profile", method: :post do |f|%>
+            
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-picture-o"></i>
+                <%= f.label :profile_image %>
+                <%= f.file_field :profile_image %>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <%= f.text_field :first_name,placeholder: "First name",:value=>@user.first_name  %>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <%= f.text_field :last_name, placeholder: "Last name",:value=>@user.last_name  %>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-birthday-cake"></i>
+                <%= f.date_field :date_of_birth, placeholder: "Date of Birth"  %>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-mobile"></i>
+                <%= f.number_field :mobile, placeholder: "Mobile_no"  %>
+              </div>
+              <div class="button input-box">
+                <%= f.submit "Edit Profile"%>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

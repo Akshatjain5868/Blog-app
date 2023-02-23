@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DeviseApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if session[:user] %>
+      <ul>
+        <li class = "nav-items", style = "float:left;"><%= link_to "Logout" ,account_logout_path, class: 'nav-link'%></li>
+        <li class = "nav-items"><%= link_to "Reset your password" ,password_reset_password_path, class: 'nav-link'%></li>
+        <li class = "nav-items"><%= link_to "Dashboard" ,account_dashboard_path, class: 'nav-link'%></li>
+        <li class = "nav-items"><%= link_to "Edit Profile" ,profile_edit_profile_path, class: 'nav-link'%></li>
+      </ul>
+    <% end %>
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>
